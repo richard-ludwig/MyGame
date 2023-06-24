@@ -1,29 +1,16 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Personagem {
-    private int tamanho;
-    private MyImage m;
-    private String nome;
+public class Personagem extends Entidade{
     private ArrayList<Habilidade> habilidades;
     private int vida;
     private int mana;
     private Point p;
-    public Personagem(){
-        m= new MyImage();
-        tamanho=0;
-        nome="";
-        habilidades=new ArrayList<>();
-        vida=0;
-        mana=0;
-    }
-
-    public void setM(MyImage m) {
-        this.m = m;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Personagem(Dimension tamanho, MyImage img, String nome){
+        super(tamanho, img, nome);
+        this.habilidades=new ArrayList<>();
+        this.vida=0;
+        this.mana=0;
     }
 
     public void setVida(int vida) {
@@ -36,7 +23,6 @@ public class Personagem {
     public void newHabilidade(Habilidade h){
         this.habilidades.add(h);
     }
-
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
     }
