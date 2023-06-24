@@ -90,7 +90,8 @@ public class Tabuleiro extends JPanel {
     }
     
     public void loadLevel(int nivel) {
-        Path path1 = Paths.get(String.format("nivel%d.txt", nivel));
+        Path path1 = Paths.get(String.format("src2/nivel%d.txt", nivel));
+
         try (BufferedReader reader = Files.newBufferedReader(path1)) {
             String line = null;
             int lin = 0;

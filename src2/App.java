@@ -3,13 +3,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
 public class App extends JFrame implements ActionListener{
+    private GraphicsDevice device;
+    private Dimension getScreenSize(){
+        return Toolkit.getDefaultToolkit().getScreenSize();
+    }
     private Tabuleiro tabuleiro;
     private Personagem personagem;
 
@@ -54,9 +57,9 @@ public class App extends JFrame implements ActionListener{
 
         // Exibe a janela
         this.add(painelGeral);
-
-        this.setSize(1100,1100);
         this.setTitle("Jogo Demo");
+        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setSize(getScreenSize());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
         tabuleiro.atualizaVisualizacao();
@@ -79,9 +82,6 @@ public class App extends JFrame implements ActionListener{
         }
         tabuleiro.atualizaVisualizacao();
     }
-
-
-    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
